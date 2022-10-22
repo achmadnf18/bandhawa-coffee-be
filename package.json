@@ -34,6 +34,7 @@
     "sequelize": "^6.21.3",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.5.0",
+    "uuidv4": "^6.2.13",
     "winston": "^3.8.1",
     "winston-daily-rotate-file": "^4.7.1"
   },
@@ -63,6 +64,7 @@
     "husky": "^8.0.1",
     "jest": "^28.1.1",
     "lint-staged": "^13.0.3",
+    "node-base64-image": "^2.0.4",
     "node-config": "^0.0.2",
     "node-gyp": "^9.1.0",
     "nodemon": "^2.0.19",

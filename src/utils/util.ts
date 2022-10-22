@@ -1,3 +1,5 @@
+import { uuid } from 'uuidv4';
+
 /**
  * @method isEmpty
  * @param {String | Number | Object} value
@@ -16,4 +18,18 @@ export const isEmpty = (value: string | number | object): boolean => {
   } else {
     return false;
   }
+};
+
+export const base64toImg = (
+  base64: string,
+): { image: Buffer; imageName: string; extension: string } => {
+  const imageName = uuid();
+  const extension = base64.match(/[^:]\w+\/[\w-+\d.]+(?=;|,)/)[0].split('/')[1];
+  const image = Buffer.from(base64.split(',')[1], 'base64');
+
+  return {
+    image,
+    imageName,
+    extension,
+  };
 };

@@ -2,6 +2,8 @@ import { NextFunction, Request, Response } from 'express';
 import ProductService from '@/services/products.service';
 import { Product } from '@/models/products.model';
 import { CreateProductDto } from '@/dtos/products.dto';
+import { base64toImg } from '@/utils/util';
+import fs from 'fs';
 
 class ProductsController {
   public productService = new ProductService();
@@ -18,8 +20,8 @@ class ProductsController {
 
   public getProductById = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const userId = Number(req.params.id);
-      const findOneProductData: Product = await this.productService.findProductById(userId);
+      const productId = Number(req.params.id);
+      const findOneProductData: Product = await this.productService.findProductById(productId);
 
       res.status(200).json({ data: findOneProductData, message: 'findOne' });
     } catch (error) {
@@ -29,8 +31,17 @@ class ProductsController {
 
   public createProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const userData: CreateProductDto = req.body;
-      const createProductData: Product = await this.productService.createProduct(userData);
+      const productData: CreateProductDto = req.body;
+      const productImage = productData.image;
+      const { image, imageName, extension } = base64toImg(productImage);
+
+      const filePath = `public/images/${imageName}.${extension}`;
+      fs.writeFileSync(filePath, image);
+
+      const createProductData: Product = await this.productService.createProduct({
+        ...productData,
+        image: `${imageName}.${extension}`,
+      });
 
       res.status(201).json({ data: createProductData, message: 'created' });
     } catch (error) {
@@ -40,9 +51,19 @@ class ProductsController {
 
   public updateProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const userId = Number(req.params.id);
-      const userData: CreateProductDto = req.body;
-      const updateProductData: Product = await this.productService.updateProduct(userId, userData);
+      const productId = Number(req.params.id);
+      const productData: CreateProductDto = req.body;
+
+      const productImage = productData.image;
+      const { image, imageName, extension } = base64toImg(productImage);
+
+      const filePath = `public/images/${imageName}.${extension}`;
+      fs.writeFileSync(filePath, image);
+
+      const updateProductData: Product = await this.productService.updateProduct(productId, {
+        ...productData,
+        image: `${imageName}.${extension}`,
+      });
 
       res.status(200).json({ data: updateProductData, message: 'updated' });
     } catch (error) {
@@ -52,8 +73,8 @@ class ProductsController {
 
   public deleteProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const userId = Number(req.params.id);
-      const deleteProductData: Product = await this.productService.deleteProduct(userId);
+      const productId = Number(req.params.id);
+      const deleteProductData: Product = await this.productService.deleteProduct(productId);
 
       res.status(200).json({ data: deleteProductData, message: 'deleted' });
     } catch (error) {
