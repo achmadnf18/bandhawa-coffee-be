@@ -8,7 +8,12 @@ class ProductService {
   public products = DB.Products;
 
   public async findAllProduct(): Promise<Product[]> {
-    const allProduct: Product[] = await this.products.findAll();
+    const allProduct: Product[] = await this.products.findAll({
+      order: [
+        ['id', 'DESC'],
+        ['created_at', 'DESC'],
+      ],
+    });
     return allProduct;
   }
 
