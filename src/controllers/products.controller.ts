@@ -34,6 +34,7 @@ class ProductsController {
       const productData: CreateProductDto = req.body;
       const productImage = productData.image;
       const { image, imageName, extension } = base64toImg(productImage);
+      if (!image) throw Error('image is must base64 string!');
 
       const filePath = `public/images/${imageName}.${extension}`;
       fs.writeFileSync(filePath, image);
@@ -54,16 +55,20 @@ class ProductsController {
       const productId = Number(req.params.id);
       const productData: CreateProductDto = req.body;
 
+      const payload = { ...productData };
+
       const productImage = productData.image;
       const { image, imageName, extension } = base64toImg(productImage);
+      if (image) {
+        const filePath = `public/images/${imageName}.${extension}`;
+        fs.writeFileSync(filePath, image);
+        payload.image = `${imageName}.${extension}`;
+      }
 
-      const filePath = `public/images/${imageName}.${extension}`;
-      fs.writeFileSync(filePath, image);
-
-      const updateProductData: Product = await this.productService.updateProduct(productId, {
-        ...productData,
-        image: `${imageName}.${extension}`,
-      });
+      const updateProductData: Product = await this.productService.updateProduct(
+        productId,
+        payload,
+      );
 
       res.status(200).json({ data: updateProductData, message: 'updated' });
     } catch (error) {

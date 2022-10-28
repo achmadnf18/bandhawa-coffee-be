@@ -20,16 +20,22 @@ export const isEmpty = (value: string | number | object): boolean => {
   }
 };
 
-export const base64toImg = (
-  base64: string,
-): { image: Buffer; imageName: string; extension: string } => {
-  const imageName = uuid();
-  const extension = base64.match(/[^:]\w+\/[\w-+\d.]+(?=;|,)/)[0].split('/')[1];
-  const image = Buffer.from(base64.split(',')[1], 'base64');
+export const base64toImg = (base64: string) => {
+  try {
+    const imageName = uuid();
+    const extension = base64.match(/[^:]\w+\/[\w-+\d.]+(?=;|,)/)?.[0].split('/')[1];
+    const image = Buffer.from(base64.split(',')[1], 'base64');
 
-  return {
-    image,
-    imageName,
-    extension,
-  };
+    return {
+      image,
+      imageName,
+      extension,
+    };
+  } catch (err) {
+    return {
+      image: undefined,
+      imageName: undefined,
+      extension: undefined,
+    };
+  }
 };
