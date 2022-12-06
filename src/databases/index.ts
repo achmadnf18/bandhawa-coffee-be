@@ -2,10 +2,11 @@ import Sequelize from 'sequelize';
 import { NODE_ENV, DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } from '@config';
 import ProductModel from '@models/products.model';
 import UserModel from '@/models/users.model';
+import mysql2 from 'mysql2';
 
 const sequelize = new Sequelize.Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
   dialect: 'mysql',
-  dialectModule: require('mysql2'),
+  dialectModule: mysql2,
   host: DB_HOST,
   port: Number(DB_PORT),
   timezone: '+07:00',

@@ -10,6 +10,7 @@ const _sequelize = _interopRequireDefault(require("sequelize"));
 const _config = require("../config");
 const _productsModel = _interopRequireDefault(require("../models/products.model"));
 const _usersModel = _interopRequireDefault(require("../models/users.model"));
+const _mysql2 = _interopRequireDefault(require("mysql2"));
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
@@ -17,7 +18,7 @@ function _interopRequireDefault(obj) {
 }
 const sequelize = new _sequelize.default.Sequelize(_config.DB_DATABASE, _config.DB_USER, _config.DB_PASSWORD, {
     dialect: 'mysql',
-    dialectModule: require('mysql2'),
+    dialectModule: _mysql2.default,
     host: _config.DB_HOST,
     port: Number(_config.DB_PORT),
     timezone: '+07:00',

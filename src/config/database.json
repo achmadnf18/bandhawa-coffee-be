@@ -5,7 +5,8 @@
     "database": "coffeebeans",
     "host": "141.136.47.231",
     "port": "3306",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectModule": "mysql2"
   },
   "test": {
     "username": "root",
@@ -15,10 +16,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "bandhawa",
+    "password": "!INDonesia",
+    "database": "coffeebeans",
+    "host": "141.136.47.231",
+    "port": "3306",
+    "dialect": "mysql",
+    "dialectModule": "mysql2"
   }
 }
