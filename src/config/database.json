@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
+    "username": "bandhawa",
+    "password": "!INDonesia",
     "database": "coffeebeans",
-    "host": "127.0.0.1",
-    "port": "3307",
+    "host": "141.136.47.231",
+    "port": "3306",
     "dialect": "mysql"
   },
   "test": {

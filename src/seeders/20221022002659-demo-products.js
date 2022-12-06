@@ -104,7 +104,8 @@ module.exports = {
         process: 'Wine - Full Wash ',
         elevation: '1200-1700 MASL',
         variety: '-',
-        taste: 'Tropical Fruits, Chocolate , Caramel, High Acidity - Medium body , Round Mouthfeel, caramel , nutty, spicy , fruitty notes',
+        taste:
+          'Tropical Fruits, Chocolate , Caramel, High Acidity - Medium body , Round Mouthfeel, caramel , nutty, spicy , fruitty notes',
         image: '/assets/beans/arabica-blend-series-gayo-wine.png',
       },
       {
@@ -138,7 +139,8 @@ module.exports = {
         process: 'Natural - Full Wash ',
         elevation: '1200-1700 MASL',
         variety: '-',
-        taste: 'Tropical Fruits, Chocolate , Caramel, High Acidity - Medium body , Round Mouthfeel, caramel , nutty, spicy , fruitty notes',
+        taste:
+          'Tropical Fruits, Chocolate , Caramel, High Acidity - Medium body , Round Mouthfeel, caramel , nutty, spicy , fruitty notes',
         image: '/assets/beans/arabica-blend-series-gayo-flores.png',
       },
       {
@@ -206,7 +208,8 @@ module.exports = {
         process: 'Natural',
         elevation: '1200 - 1500 MASL',
         variety: 'Sigararuntang Lini  S',
-        taste: 'Pear , mandarin orange slight strawbaery and caramel sweetnes , mid low acidity and low body smooth after taste',
+        taste:
+          'Pear , mandarin orange slight strawbaery and caramel sweetnes , mid low acidity and low body smooth after taste',
         image: '/assets/beans/halu-peaberry.png',
       },
       {
