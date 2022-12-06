@@ -17,6 +17,7 @@ function _interopRequireDefault(obj) {
 }
 const sequelize = new _sequelize.default.Sequelize(_config.DB_DATABASE, _config.DB_USER, _config.DB_PASSWORD, {
     dialect: 'mysql',
+    dialectModule: require('mysql2'),
     host: _config.DB_HOST,
     port: Number(_config.DB_PORT),
     timezone: '+07:00',

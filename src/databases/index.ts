@@ -5,6 +5,7 @@ import UserModel from '@/models/users.model';
 
 const sequelize = new Sequelize.Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
   dialect: 'mysql',
+  dialectModule: require('mysql2'),
   host: DB_HOST,
   port: Number(DB_PORT),
   timezone: '+07:00',
