@@ -1,7 +1,6 @@
 import Sequelize from 'sequelize';
 import { NODE_ENV, DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } from '@config';
 import ProductModel from '@models/products.model';
-import { logger } from '@utils/logger';
 import UserModel from '@/models/users.model';
 
 const sequelize = new Sequelize.Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
@@ -20,9 +19,9 @@ const sequelize = new Sequelize.Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
     max: 5,
   },
   logQueryParameters: NODE_ENV === 'development',
-  logging: (query, time) => {
-    logger.info(time + 'ms' + ' ' + query);
-  },
+  // logging: (query, time) => {
+  //   logger.info(time + 'ms' + ' ' + query);
+  // },
   benchmark: true,
 });
 

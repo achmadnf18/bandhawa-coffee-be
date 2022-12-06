@@ -9,7 +9,6 @@ Object.defineProperty(exports, "default", {
 const _sequelize = _interopRequireDefault(require("sequelize"));
 const _config = require("../config");
 const _productsModel = _interopRequireDefault(require("../models/products.model"));
-const _logger = require("../utils/logger");
 const _usersModel = _interopRequireDefault(require("../models/users.model"));
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -32,9 +31,6 @@ const sequelize = new _sequelize.default.Sequelize(_config.DB_DATABASE, _config.
         max: 5
     },
     logQueryParameters: _config.NODE_ENV === 'development',
-    logging: (query, time)=>{
-        _logger.logger.info(time + 'ms' + ' ' + query);
-    },
     benchmark: true
 });
 sequelize.authenticate();

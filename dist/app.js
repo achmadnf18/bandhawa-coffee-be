@@ -17,7 +17,6 @@ const _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 const _config = require("./config");
 const _databases = _interopRequireDefault(require("./databases"));
 const _errorMiddleware = _interopRequireDefault(require("./middlewares/error.middleware"));
-const _logger = require("./utils/logger");
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
@@ -26,10 +25,10 @@ function _interopRequireDefault(obj) {
 let App = class App {
     listen() {
         this.app.listen(this.port, ()=>{
-            _logger.logger.info(`=================================`);
-            _logger.logger.info(`======= ENV: ${this.env} =======`);
-            _logger.logger.info(`🚀 App listening on the port ${this.port}`);
-            _logger.logger.info(`=================================`);
+            console.info(`=================================`);
+            console.info(`======= ENV: ${this.env} =======`);
+            console.info(`🚀 App listening on the port ${this.port}`);
+            console.info(`=================================`);
         });
     }
     getServer() {
