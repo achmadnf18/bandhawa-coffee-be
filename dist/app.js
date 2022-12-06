@@ -12,7 +12,6 @@ const _cors = _interopRequireDefault(require("cors"));
 const _express = _interopRequireDefault(require("express"));
 const _helmet = _interopRequireDefault(require("helmet"));
 const _hpp = _interopRequireDefault(require("hpp"));
-const _morgan = _interopRequireDefault(require("morgan"));
 const _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
 const _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 const _config = require("./config");
@@ -42,9 +41,6 @@ let App = class App {
         });
     }
     initializeMiddlewares() {
-        this.app.use((0, _morgan.default)(_config.LOG_FORMAT, {
-            stream: _logger.stream
-        }));
         this.app.use((0, _cors.default)({
             origin: _config.ORIGIN
         }));
