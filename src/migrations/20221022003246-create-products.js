@@ -20,7 +20,8 @@ module.exports = {
         type: Sequelize.STRING,
       },
       weight: {
-        type: Sequelize.DECIMAL(10, 2),
+        // type: Sequelize.DECIMAL(10, 2),
+        type: Sequelize.STRING,
       },
       available: {
         type: Sequelize.ENUM('get inquity', 'out of stock'),
@@ -29,7 +30,8 @@ module.exports = {
         type: Sequelize.STRING,
       },
       score: {
-        type: Sequelize.DECIMAL(10, 1),
+        // type: Sequelize.DECIMAL(10, 1),
+        type: Sequelize.STRING,
       },
       variety: {
         type: Sequelize.STRING,

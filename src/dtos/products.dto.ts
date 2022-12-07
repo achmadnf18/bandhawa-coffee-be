@@ -1,4 +1,4 @@
-import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsString } from 'class-validator';
 
 export class CreateProductDto {
   @IsString()
@@ -10,8 +10,8 @@ export class CreateProductDto {
   @IsString()
   public process: string;
 
-  @IsNumber()
-  public weight: number;
+  @IsString()
+  public weight: string;
 
   @IsEnum(['get inquity', 'out of stock'])
   public available: string;
@@ -19,8 +19,8 @@ export class CreateProductDto {
   @IsString()
   public taste: string;
 
-  @IsNumber()
-  public score: number;
+  @IsString()
+  public score: string;
 
   @IsString()
   public variety: string;

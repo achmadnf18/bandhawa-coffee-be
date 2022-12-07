@@ -5,8 +5,7 @@
     "database": "coffeebeans",
     "host": "141.136.47.231",
     "port": "3306",
-    "dialect": "mysql",
-    "dialectModule": "mysql2"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
